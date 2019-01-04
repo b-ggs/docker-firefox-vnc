@@ -35,13 +35,14 @@ docker run -d --rm -v $HOME/Downloads:/data/downloads -p 5901:5901 bxggs/firefox
 * Change VNC password (default: `vncpassword`)
 
 ```bash
--e VNC_PASSWORD=anotherpassword
+-e VNC_PASSWORD=hunter2
 ```
 
 * Change VNC port (default: `5901`)
 
 ```bash
 -e VNC_PORT=9001
+-p 9001:9001
 ```
 
 * Change display resolution (default: `1280x720`)
@@ -62,9 +63,11 @@ custom.js
 $ docker run \
     -d \
     --rm \
-    -p 5901:5901 \
+    -p 9001:9001 \
     -v $HOME/Downloads:/data/downloads \
-    -v ./extensions:/data/extensions \
-    -v ./configs:/data/configs \
+    -v $PWD/extensions:/data/extensions \
+    -v $PWD/configs:/data/configs \
+    -e VNC_PASSWORD=hunter2 \
+    -e VNC_PORT=9001 \
     bxggs/firefox-vnc
 ```
