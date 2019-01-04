@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [[ -e "/data/configs" ]]; then
+  cp /data/configs/*.* /etc/firefox-esr
+fi
+
+if [[ -e "/data/extensions" ]]; then
+  cp /data/extensions/*.* /usr/lib/firefox-esr/browser/extensions
+fi
+
+Xvfb $DISPLAY -screen 0 ${DISPLAY_RESOLUTION}x16 &
+
+openbox-session &
+
+mkdir -p /root/.vnc
+
+x11vnc -storepasswd $VNC_PASSWORD /root/.vnc/passwd
+
+x11vnc -display $DISPLAY -xkb -forever -rfbauth /root/.vnc/passwd -rfbport $VNC_PORT &
+
+firefox
