@@ -16,7 +16,7 @@ docker run -d --rm -v $HOME/Downloads:/data/downloads -p 5901:5901 bxggs/firefox
 
 ### Additional options
 
-* Bindmount a local directory to the Firefox's default download directory
+* Bindmount a local directory to Firefox's default download directory
 
 ```bash
 -v /path/to/my/downloads:/data/downloads
