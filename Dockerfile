@@ -23,3 +23,5 @@ ADD firefox-config.js /etc/firefox-esr/
 ADD entrypoint /
 
 ENTRYPOINT ["/entrypoint"]
+
+CMD ["firefox"]

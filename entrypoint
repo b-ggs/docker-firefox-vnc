@@ -18,4 +18,4 @@ x11vnc -storepasswd $VNC_PASSWORD /root/.vnc/passwd
 
 x11vnc -display $DISPLAY -xkb -forever -rfbauth /root/.vnc/passwd -rfbport $VNC_PORT &
 
-firefox
+exec "$@"
