@@ -11,7 +11,9 @@ RUN apt-get update && \
         x11vnc \
         xvfb \
         openbox \
-        menu && \
+        menu \
+        xterm \
+        thunar && \
       rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /data/downloads
